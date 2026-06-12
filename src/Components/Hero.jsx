@@ -1,5 +1,5 @@
 import sunImg from "../assets/sun.png";
-import satelliteImg from "../assets/Solarinspace.jpg";
+import satelliteImg from "../assets/Solarinspace.png";
 import "../Styles/Hero.css";
 import herobg from"../assets/hero-bg.jpg.png";
 function Hero() {

@@ -1,30 +1,56 @@
-// ── NAVBAR ABOUT LINK FIX ──
-// Apne Navbar.jsx mein About Us link dhundo aur ye check karo:
+import { useState } from "react";
 
+import logo from "../assets/logo.png";
 
-// ✅ SAHI — React Router use karo:
-import { Link, NavLink } from "react-router-dom";
+function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
 
-// Option 1: NavLink (active class automatic milegi)
-<NavLink 
-  to="/about" 
-  className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
->
-  About Us
-</NavLink>
+  return (
+    <nav className="navbar">
+      <div className="brand">
+        <img src={logo} alt="Greenali Solar" />
+      </div>
 
-// Option 2: Simple Link
-<Link to="/about">About Us</Link>
+      <div
+        className="hamburger"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        {menuOpen ? "✕" : "☰"}
+      </div>
 
-// ─────────────────────────────────────────
-// App.jsx mein Route check karo — ye hona chahiye:
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import About from "./Components/About";
+      <ul className={menuOpen ? "nav-links active" : "nav-links"}>
+        <li>
+          <Link to="/" onClick={() => setMenuOpen(false)}>
+            Home
+          </Link>
+        </li>
 
-<Routes>
-    <Route path="/" element={<Home />} />
-    <Route path="/about" element={<About />} />   {/* ← ye line honi chahiye */}
-    <Route path="/products" element={<Products />} />
-    <Route path="/services" element={<Services />} />
-    <Route path="/contact" element={<Contact />} />
-</Routes>
+        <li>
+          <Link to="/about" onClick={() => setMenuOpen(false)}>
+            About
+          </Link>
+        </li>
+
+        <li>
+          <Link to="/services" onClick={() => setMenuOpen(false)}>
+            Services
+          </Link>
+        </li>
+
+        <li>
+          <Link to="/products" onClick={() => setMenuOpen(false)}>
+            Products
+          </Link>
+        </li>
+
+        <li>
+          <Link to="/contact" onClick={() => setMenuOpen(false)}>
+            Contact
+          </Link>
+        </li>
+      </ul>
+    </nav>
+  );
+}
+
+export default Navbar;

@@ -13,10 +13,12 @@ import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
 import SplashScreen from "./Components/SplashScreen";
 import logoImg from "./assets/logo.png";
-
+import Navbar from "./Components/Navbar";
 import heroBg from "./assets/hero-bg.jpg.png";
-import AdminLeads from "./components/AdminLeads";
+import AdminLeads from "./Components/AdminLeads";
 function App() {
+    <Navbar />
+
     const [menuOpen, setMenuOpen] = useState(false);
 
     const scrollTo = (id) => {

@@ -1,0 +1,37 @@
+@media (max-width:768px) {
+
+    .hamburger {
+        display: block !important;
+        font-size: 32px;
+        cursor: pointer;
+        z-index: 9999;
+    }
+
+    .nav-links {
+        display: none !important;
+    }
+
+    .nav-links.active {
+        display: flex !important;
+        flex-direction: column;
+        position: absolute;
+        top: 95px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        padding: 20px;
+        gap: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
+        z-index: 9999;
+    }
+
+    .nav-links.active li {
+        list-style: none;
+    }
+
+    .nav-links.active a {
+        text-decoration: none;
+        color: #071b33;
+        font-weight: 700;
+    }
+}
