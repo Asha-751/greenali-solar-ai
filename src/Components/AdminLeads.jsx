@@ -4,7 +4,7 @@ export default function AdminLeads() {
     const [leads, setLeads] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/leads")
+        fetch("https://greenali-solar-ai.onrender.com/api/leads")
             .then((res) => res.json())
             .then((data) => setLeads(data.reverse()))
             .catch(() => alert("Backend not connected"));
