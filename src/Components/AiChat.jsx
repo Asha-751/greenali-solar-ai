@@ -24,15 +24,18 @@ export default function AiChat() {
         setQuestion("");
 
         try {
-            const res = await fetch("http://localhost:5000/ask", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ question: currentQuestion }),
-            });
+            const response = await fetch(
+                "https://greenali-solar-ai.onrender.com/ask",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ question: currentQuestion }),
+                }
+            );
 
-            const data = await res.json();
+            const data = await response.json();
 
             setMessages((prev) => [
                 ...prev,
@@ -46,7 +49,7 @@ export default function AiChat() {
                 ...prev,
                 {
                     from: "bot",
-                    text: "Backend not connected. Please start server.",
+                    text: "Backend not connected. Please try again.",
                 },
             ]);
         }
@@ -98,15 +101,4 @@ export default function AiChat() {
             )}
         </>
     );
-} const response = await fetch(
-    "https://greenali-solar-ai.onrender.com/ask",
-    {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ question }),
-    }
-);
-
-const data = await response.json();
+}
