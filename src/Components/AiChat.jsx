@@ -98,4 +98,15 @@ export default function AiChat() {
             )}
         </>
     );
-}
+} const response = await fetch(
+    "https://greenali-solar-ai.onrender.com/ask",
+    {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ question }),
+    }
+);
+
+const data = await response.json();

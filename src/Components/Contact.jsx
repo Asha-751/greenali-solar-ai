@@ -23,9 +23,11 @@ export default function Contact() {
         setLoading(true);
 
         try {
-            const res = await fetch("http://localhost:5000/api/contact", {
+            const res = await fetch("https://greenali-solar-ai.onrender.com/api/contact", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json",
+                },
                 body: JSON.stringify(formData),
             });
 
@@ -33,6 +35,14 @@ export default function Contact() {
 
             if (data.success) {
                 setSubmitted(true);
+                setFormData({
+                    name: "",
+                    phone: "",
+                    email: "",
+                    city: "Patna",
+                    service: "",
+                    message: "",
+                });
             } else {
                 alert("Form submit failed");
             }
