@@ -1,7 +1,17 @@
 import sunImg from "../assets/sun.png";
 import satelliteImg from "../assets/Solarinspace.png";
 import "../Styles/Hero.css";
-import herobg from"../assets/hero-bg.jpg.png";
+import herobg from "../assets/hero-bg.jpg.png";
+import { useNavigate } from "react-router-dom";
+
+const navigate = useNavigate();
+
+<button
+  className="hero-btn primary"
+  onClick={() => navigate("/solutions")}
+>
+  Explore Solutions
+</button>
 function Hero() {
   return (
     <section className="hero" id="home">

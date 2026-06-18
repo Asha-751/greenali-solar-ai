@@ -23,13 +23,16 @@ export default function Contact() {
         setLoading(true);
 
         try {
-            const res = await fetch("https://greenali-solar-ai.onrender.com/api/contact", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
-            });
+            const res = await fetch(
+                "https://greenali-solar-ai.onrender.com/api/contact",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(formData),
+                }
+            );
 
             const data = await res.json();
 
@@ -58,8 +61,13 @@ export default function Contact() {
         <main className="contact-page" id="contact">
             <section className="contact-hero">
                 <div className="contact-hero__glow"></div>
+
                 <p className="contact-hero__eyebrow">Greenali Solar — Contact Us</p>
-                <h1 className="contact-hero__title">Let’s Power Your Future Together</h1>
+
+                <h1 className="contact-hero__title">
+                    Let’s Power Your Future Together
+                </h1>
+
                 <p className="contact-hero__subtitle">
                     Get a free solar consultation for your home, business or farm.
                 </p>
@@ -68,7 +76,11 @@ export default function Contact() {
             <section className="contact-body">
                 <div className="contact-left">
                     <p className="contact-left__eyebrow">GET IN TOUCH</p>
-                    <h2 className="contact-left__title">Request Your Free Solar Quote</h2>
+
+                    <h2 className="contact-left__title">
+                        Request Your Free Solar Quote
+                    </h2>
+
                     <p className="contact-left__desc">
                         Fill the form and our solar expert will contact you within 24 hours.
                     </p>
@@ -80,7 +92,7 @@ export default function Contact() {
 
                     <div className="info-item">
                         <span className="info-item__icon">✉️</span>
-                        <p>hello@greenalisolar.com</p>
+                        <p>Info@greenalisolar.com</p>
                     </div>
 
                     <div className="info-item">
@@ -153,7 +165,7 @@ export default function Contact() {
                                 onChange={handleChange}
                             ></textarea>
 
-                            <button type="submit">
+                            <button type="submit" disabled={loading}>
                                 {loading ? "Submitting..." : "Request Free Quote →"}
                             </button>
                         </form>

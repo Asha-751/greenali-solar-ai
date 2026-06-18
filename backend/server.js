@@ -35,7 +35,7 @@ app.post("/ask", (req, res) => {
             "Battery backup ke liye hybrid solar system best hota hai. Ye power cut aur night usage me useful hai.";
     } else if (q.includes("contact") || q.includes("phone")) {
         answer =
-            "Greenali Solar contact: +91 6200003061, Email: hello@greenalisolar.com.";
+            "Greenali Solar contact: +91 6200003061, Email: Info@greenalisolar.com.com.";
     }
 
     res.json({ answer });

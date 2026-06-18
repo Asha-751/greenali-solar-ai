@@ -242,7 +242,7 @@ export default function Services() {
               <a href="https://wa.me/916200003061" target="_blank" rel="noreferrer" className="sv-btn-green">
                 💬 WhatsApp
               </a>
-              <a href="mailto:hello@greenalisolar.com" className="sv-btn-ghost">
+              <a href="mailto:Info@greenalisolar.com" className="sv-btn-ghost">
                 ✉️ Email Us
               </a>
             </div>

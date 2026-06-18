@@ -14,8 +14,7 @@ const PRODUCTS = [
             { val: "ISI", label: "Approved" },
         ],
         badge: "🇮🇳 Made in India",
-        photo:
-            "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&auto=format&fit=crop&q=80",
+        photo: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&auto=format&fit=crop&q=80",
         alt: "Solar panels on rooftop",
         slideClass: "ps-slide-0",
     },
@@ -32,8 +31,7 @@ const PRODUCTS = [
             { val: "95%", label: "Efficiency" },
         ],
         badge: "⚡ Smart BMS Included",
-        photo:
-            "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=1200&auto=format&fit=crop&q=80",
+        photo: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=1200&auto=format&fit=crop&q=80",
         alt: "Solar battery storage",
         slideClass: "ps-slide-1",
     },
@@ -50,8 +48,7 @@ const PRODUCTS = [
             { val: "WiFi", label: "Enabled" },
         ],
         badge: "📱 App Monitoring",
-        photo:
-            "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=1200&auto=format&fit=crop&q=80",
+        photo: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=1200&auto=format&fit=crop&q=80",
         alt: "Solar inverter",
         slideClass: "ps-slide-2",
     },
@@ -68,8 +65,7 @@ const PRODUCTS = [
             { val: "All", label: "Roof Types" },
         ],
         badge: "🔩 Corrosion-Free",
-        photo:
-            "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1200&auto=format&fit=crop&q=80",
+        photo: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1200&auto=format&fit=crop&q=80",
         alt: "Solar structure",
         slideClass: "ps-slide-3",
     },
@@ -86,8 +82,7 @@ const PRODUCTS = [
             { val: "Auto", label: "Schedule" },
         ],
         badge: "🤖 AI Auto-Schedule",
-        photo:
-            "https://images.unsplash.com/photo-1548337138-e87d889cc369?w=1200&auto=format&fit=crop&q=80",
+        photo: "https://images.unsplash.com/photo-1548337138-e87d889cc369?w=1200&auto=format&fit=crop&q=80",
         alt: "Solar panel cleaner",
         slideClass: "ps-slide-4",
     },
@@ -104,8 +99,7 @@ const PRODUCTS = [
             { val: "Deep", label: "Bore Compatible" },
         ],
         badge: "🌾 Agriculture Ready",
-        photo:
-            "https://images.unsplash.com/photo-1560472355-536de3962603?w=1200&auto=format&fit=crop&q=80",
+        photo: "https://images.unsplash.com/photo-1560472355-536de3962603?w=1200&auto=format&fit=crop&q=80",
         alt: "Solar water pump",
         slideClass: "ps-slide-5",
     },
@@ -122,8 +116,7 @@ const PRODUCTS = [
             { val: "IP65", label: "Waterproof" },
         ],
         badge: "💡 Zero Wiring Needed",
-        photo:
-            "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&auto=format&fit=crop&q=80",
+        photo: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&auto=format&fit=crop&q=80",
         alt: "Solar lights",
         slideClass: "ps-slide-6",
     },
@@ -140,8 +133,7 @@ const PRODUCTS = [
             { val: "MCB", label: "Included" },
         ],
         badge: "🛡️ IP54 Protected",
-        photo:
-            "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1200&auto=format&fit=crop&q=80",
+        photo: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1200&auto=format&fit=crop&q=80",
         alt: "DB panel",
         slideClass: "ps-slide-7",
     },
@@ -154,6 +146,10 @@ export default function ProductsShowcase() {
     const [blocking, setBlocking] = useState(false);
     const lastWheelRef = useRef(0);
     const touchStartRef = useRef(0);
+
+    const scrollToSection = (id) => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    };
 
     const goTo = useCallback(
         (index) => {
@@ -218,15 +214,11 @@ export default function ProductsShowcase() {
 
     return (
         <section id="products" className="ps-wrapper">
-            <div
-                className="ps-track"
-                style={{ transform: "translateY(0)" }}
-            >
+            <div className="ps-track">
                 {PRODUCTS.map((p) => (
                     <div
                         key={p.id}
-                        className={`ps-slide ${p.slideClass} ${p.id === current ? "active" : ""
-                            }`}
+                        className={`ps-slide ${p.slideClass} ${p.id === current ? "active" : ""}`}
                     >
                         <div className="ps-content">
                             <div className="ps-num">{p.num}</div>
@@ -248,9 +240,20 @@ export default function ProductsShowcase() {
                                 ))}
                             </div>
 
-                            <div className="ps-btns">
-                                <button className="ps-btn-order">Order Now</button>
-                                <button className="ps-btn-learn">Learn More</button>
+                            <div className="product-buttons">
+                                <button
+                                    className="product-order-btn"
+                                    onClick={() => scrollToSection("contact")}
+                                >
+                                    Order Now
+                                </button>
+
+                                <button
+                                    className="product-learn-btn"
+                                    onClick={() => scrollToSection("about")}
+                                >
+                                    Learn More
+                                </button>
                             </div>
                         </div>
 

@@ -326,6 +326,34 @@
     border-radius: 2px;
 }
 
+.product-buttons {
+    display: flex;
+    gap: 18px;
+    margin-top: 28px;
+}
+
+.product-order-btn,
+.product-learn-btn {
+    padding: 14px 34px;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.product-order-btn {
+    background: #00ff9d;
+    color: #001b18;
+    border: 1px solid #00ff9d;
+}
+
+.product-learn-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid #00ff9d;
+}
+
 .ps-btn-order {
     background: #00ff88;
     color: #00140b;
@@ -567,4 +595,83 @@
 .ps-badge {
     opacity: 0;
     transform: translateY(35px);
+}
+
+.founder {
+    padding: 90px 8%;
+    background: #f8fbff;
+}
+
+.founder-wrapper {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.founder-image {
+    flex: 1;
+}
+
+.founder-image img {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.founder-text {
+    flex: 1.5;
+}
+
+.founder-text h4 {
+    color: #00b894;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.founder-text h2 {
+    font-size: 42px;
+    color: #0b2545;
+    margin-bottom: 20px;
+}
+
+.founder-text p {
+    color: #555;
+    line-height: 1.9;
+    margin-bottom: 18px;
+    font-size: 17px;
+}
+
+.founder-btn {
+    display: inline-block;
+    margin-top: 15px;
+    background: linear-gradient(90deg, #00c853, #0091ea);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.founder-btn:hover {
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .founder-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .founder-text h2 {
+        font-size: 32px;
+    }
+
+    .founder-image img {
+        max-width: 300px;
+    }
 }

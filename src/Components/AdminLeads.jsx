@@ -3,6 +3,17 @@ import { useEffect, useState } from "react";
 export default function AdminLeads() {
     const [leads, setLeads] = useState([]);
 
+    const params = new URLSearchParams(window.location.search);
+    const pass = params.get("pass");
+
+    if (pass !== "greenali123") {
+        return (
+            <div style={{ padding: "100px", color: "red" }}>
+                <h1>Access Denied</h1>
+            </div>
+        );
+    }
+
     useEffect(() => {
         fetch("https://greenali-solar-ai.onrender.com/api/leads")
             .then((res) => res.json())
@@ -28,8 +39,8 @@ export default function AdminLeads() {
                 </thead>
 
                 <tbody>
-                    {leads.map((lead) => (
-                        <tr key={lead.id}>
+                    {leads.map((lead, index) => (
+                        <tr key={index}>
                             <td>{lead.name}</td>
                             <td>{lead.phone}</td>
                             <td>{lead.email}</td>
