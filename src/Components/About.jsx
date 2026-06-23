@@ -8,11 +8,6 @@ import expo1 from "../assets/expo1.jpg";
 import expo2 from "../assets/expo2.jpg";
 import expo3 from "../assets/expo3.jpg";
 
-import about1 from "../assets/about1.jpg";
-import about2 from "../assets/about2.jpg";
-import about3 from "../assets/about3.jpg";
-import about4 from "../assets/about4.jpg";
-
 const VIDEO2 =
   "https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4";
 
@@ -128,11 +123,31 @@ export default function About() {
 
         <div className="ab-split-right">
           <div className="ab-slider">
-            <img src={about1} alt="Solar project 1" className="slide active" />
-            <img src={about2} alt="Solar project 2" className="slide" />
-            <img src={about3} alt="Solar project 3" className="slide" />
-            <img src={about4} alt="Solar project 4" className="slide" />
+            <img
+              src="https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg?auto=compress&cs=tinysrgb&w=1600"
+              alt="Solar Farm"
+              className="slide active"
+            />
+
+            <img
+              src="https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=1600"
+              alt="Solar Panels"
+              className="slide"
+            />
+
+            <img
+              src="https://images.pexels.com/photos/9799716/pexels-photo-9799716.jpeg?auto=compress&cs=tinysrgb&w=1600"
+              alt="Solar Installation"
+              className="slide"
+            />
+
+            <img
+              src="https://images.pexels.com/photos/414837/pexels-photo-414837.jpeg?auto=compress&cs=tinysrgb&w=1600"
+              alt="Clean Energy"
+              className="slide"
+            />
           </div>
+
           <div className="ab-img-overlay"></div>
         </div>
       </section>

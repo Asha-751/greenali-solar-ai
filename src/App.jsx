@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
+
 import "./App.css";
 import AdminLeads from "./Components/AdminLeads";
 import AiChat from "./Components/AiChat";
@@ -11,50 +13,13 @@ import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
 import SplashScreen from "./Components/SplashScreen";
 
-
 import logoImg from "./assets/logo.png";
 import heroBg from "./assets/hero-bg.jpg.png";
 import "./Styles/Productsshowcase.css";
-;
-function App() {
 
-    const [menuOpen, setMenuOpen] = useState(false);
-    if (window.location.pathname === "/admin") {
-        return <AdminLeads />;
-    }
-    const scrollTo = (id) => {
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-        setMenuOpen(false);
-    };
-
+function HomePage({ scrollTo }) {
     return (
         <>
-            <SplashScreen />
-
-            <nav className="navbar">
-                <div className="brand" onClick={() => scrollTo("home")}>
-                    <img src={logoImg} alt="Greenali Solar" />
-                    <div>
-                        <h2>GREENALI</h2>
-                        <p>SOLAR</p>
-                    </div>
-                </div>
-
-                <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-                    {menuOpen ? "✕" : "☰"}
-                </div>
-
-                <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
-                    <li onClick={() => scrollTo("home")}>Home</li>
-                    <li onClick={() => scrollTo("about")}>About</li>
-                    <li onClick={() => scrollTo("products")}>Products</li>
-                    <li onClick={() => scrollTo("services")}>Services</li>
-                    <li onClick={() => scrollTo("blog")}>Blog</li>
-                    <li onClick={() => scrollTo("why-solar")}>Why Solar</li>
-                    <li onClick={() => scrollTo("contact")}>Contact</li>
-                </ul>
-            </nav>
-
             <section
                 className="clean-hero"
                 id="home"
@@ -77,6 +42,7 @@ function App() {
                         <button onClick={() => scrollTo("products")}>
                             Explore Solutions
                         </button>
+
                         <button onClick={() => scrollTo("contact")}>
                             Get Free Quote
                         </button>
@@ -84,20 +50,105 @@ function App() {
                 </div>
             </section>
 
-            <ProductsShowcase />
-            <About />
-            <Services />
+            <div id="products">
+                <ProductsShowcase />
+            </div>
+
+            <div id="about">
+                <About />
+            </div>
+
+            <div id="services">
+                <Services />
+            </div>
 
             <div id="blog">
                 <Blog />
             </div>
 
-            <WhySolar />
-            <Contact />
+            <div id="why-solar">
+                <WhySolar />
+            </div>
+
+            <div id="contact">
+                <Contact />
+            </div>
+        </>
+    );
+}
+
+function App() {
+    const [menuOpen, setMenuOpen] = useState(false);
+    const location = useLocation();
+
+    const scrollTo = (id) => {
+        if (location.pathname !== "/") {
+            window.location.href = `/#${id}`;
+            return;
+        }
+
+        setTimeout(() => {
+            document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+
+        setMenuOpen(false);
+    };
+
+    return (
+        <>
+            <SplashScreen />
+
+            <nav className="navbar">
+                <Link to="/" className="brand" onClick={() => setMenuOpen(false)}>
+                    <img src={logoImg} alt="Greenali Solar" />
+                    <div>
+                        <h2>GREENALI</h2>
+                        <p>SOLAR</p>
+                    </div>
+                </Link>
+
+                <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+                    {menuOpen ? "✕" : "☰"}
+                </div>
+
+                <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
+                    <li>
+                        <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
+                    </li>
+                    <li>
+                        <Link to="/products" onClick={() => setMenuOpen(false)}>Products</Link>
+                    </li>
+                    <li>
+                        <Link to="/services" onClick={() => setMenuOpen(false)}>Services</Link>
+                    </li>
+                    <li>
+                        <Link to="/blog" onClick={() => setMenuOpen(false)}>Blog</Link>
+                    </li>
+                    <li>
+                        <Link to="/why-solar" onClick={() => setMenuOpen(false)}>Why Solar</Link>
+                    </li>
+                    <li>
+                        <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+                    </li>
+                </ul>
+            </nav>
+
+            <Routes>
+                <Route path="/" element={<HomePage scrollTo={scrollTo} />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/products" element={<ProductsShowcase />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/why-solar" element={<WhySolar />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/admin" element={<AdminLeads />} />
+            </Routes>
+
             <Footer />
-
             <AiChat />
-
         </>
     );
 }
