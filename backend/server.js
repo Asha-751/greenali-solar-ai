@@ -61,7 +61,7 @@ app.post("/api/contact", async (req, res) => {
         console.log("📩 New Lead:", newLead);
 
         const { error } = await resend.emails.send({
-            from: "Greenali Solar <onboarding@resend.dev>",
+            from: "Greenali Solar <info@greenalisolar.com>",
             to: process.env.RECEIVER_EMAIL,
             subject: "🌞 New Contact Form Inquiry",
             html: `
