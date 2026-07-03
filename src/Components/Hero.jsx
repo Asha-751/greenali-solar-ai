@@ -1,49 +1,29 @@
-import sunImg from "../assets/sun.png";
-import satelliteImg from "../assets/Solarinspace.png";
-import "../Styles/Hero.css";
-import herobg from "../assets/hero-bg.jpg.png";
-import { useNavigate } from "react-router-dom";
-
-const navigate = useNavigate();
-
-<button
-  className="hero-btn primary"
-  onClick={() => navigate("/solutions")}
->
-  Explore Solutions
-</button>
-function Hero() {
+function HomePage() {
   return (
-    <section className="hero" id="home">
-      <div className="hero-content">
+    <section className="clean-hero" id="home">
+      <div className="hero-slide slide1"></div>
+      <div className="hero-slide slide2"></div>
+      <div className="hero-slide slide3"></div>
+      <div className="hero-slide slide4"></div>
+
+      <div className="clean-hero-overlay"></div>
+
+      <div className="clean-hero-content">
         <h1>
-          Powering a <br />
-          <span>Sustainable</span> <br />
-          Tomorrow
+          Powering A <br />
+          <b>Bill-Free Future</b>
         </h1>
 
         <p>
-          High-efficiency solar solutions for homes, businesses & industries.
-          Clean energy. Green future. Infinite possibilities.
+          Switch to clean solar energy and save up to 90% on electricity costs
+          with Greenali Solar.
         </p>
 
-        <div className="hero-buttons">
-          <button className="primary-btn">☀ Explore Solutions →</button>
-          <button className="secondary-btn">📄 Get a Free Quote</button>
+        <div className="clean-hero-buttons">
+          <Link to="/products" className="hero-btn">Explore Solutions</Link>
+          <Link to="/contact" className="hero-btn">Get Free Quote</Link>
         </div>
       </div>
-      <div className="satellite-container">
-        <img
-          src={satelliteImg}
-          alt="Solar Satellite"
-          className="satellite"
-        />
-      </div>
-
-      <img src={sunImg} alt="Sun" className="hero-sun" />
-      <img src={satelliteImg} alt="Solar Satellite" className="satellite" />
     </section>
   );
 }
-
-export default Hero;

@@ -87,20 +87,33 @@ export default function Contact() {
 
                     <div className="info-item">
                         <span className="info-item__icon">📞</span>
-                        <p>+91 6200003061</p>
+                        <a href="tel:+916200003061" className="contact-link">
+                            +91 6200003061
+                        </a>
                     </div>
 
                     <div className="info-item">
                         <span className="info-item__icon">✉️</span>
-                        <p>Info@greenalisolar.com</p>
+                        <a
+                            href="mailto:Info@greenalisolar.com"
+                            className="contact-link"
+                        >
+                            Info@greenalisolar.com
+                        </a>
                     </div>
 
                     <div className="info-item">
                         <span className="info-item__icon">📍</span>
-                        <p>Ashok Raj Path, Mahendru, Patna – 800006</p>
+                        <a
+                            href="https://maps.google.com/?q=Ashok+Raj+Path+Mahendru+Patna+800006"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="contact-link"
+                        >
+                            Ashok Raj Path, Mahendru, Patna – 800006
+                        </a>
                     </div>
                 </div>
-
                 <div className="contact-form-card">
                     {submitted ? (
                         <div className="form-success">

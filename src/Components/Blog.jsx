@@ -270,22 +270,46 @@ function NewsletterCTA() {
                 Get expert guidance for residential, commercial and industrial solar
                 projects.
             </p>
-
             <div className="benefit-box">
-                <div>⚡ Save On Electricity Bills</div>
-                <div>🌱 Clean & Sustainable Energy</div>
-                <div>🏡 Homes, Businesses & Industries</div>
-                <div>💰 Subsidy Guidance</div>
-                <div>🛡️ Long-Term Performance Support</div>
-                <div>📞 Free Consultation</div>
-            </div>
 
-            <div className="benefit-btns">
-                <a href="tel:+916200003061">📞 Call Now</a>
+                <a href="/contact" className="benefit-item">
+                    ⚡ Save On Electricity Bills
+                </a>
+
+                <a href="/why-solar" className="benefit-item">
+                    🌱 Clean & Sustainable Energy
+                </a>
+
+                <a href="/products" className="benefit-item">
+                    🏠 Homes, Businesses & Industries
+                </a>
+
+                <a href="/contact" className="benefit-item">
+                    💰 Subsidy Guidance
+                </a>
+
+                <a href="/services" className="benefit-item">
+                    🛡 Long-Term Performance Support
+                </a>
+
+                <a href="tel:+916200003061" className="benefit-item">
+                    📞 Free Consultation
+                </a>
+
+            </div>
+            <div className="solar-cta-buttons">
+                <a
+                    href="tel:+916200003061"
+                    className="solar-cta-btn"
+                >
+                    📞 Call Now
+                </a>
+
                 <a
                     href="https://wa.me/916200003061"
                     target="_blank"
                     rel="noreferrer"
+                    className="solar-cta-btn"
                 >
                     💬 WhatsApp Us
                 </a>

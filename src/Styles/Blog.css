@@ -1,7 +1,12 @@
 .blog-page {
-  background: #061528;
   min-height: 100vh;
-  font-family: Arial, sans-serif;
+
+  background:
+    linear-gradient(135deg,
+      #001d17 0%,
+      #003d2d 40%,
+      #00583d 100%);
+
   color: white;
 }
 
@@ -178,6 +183,13 @@
   place-items: center;
   font-size: 24px;
   box-shadow: 0 0 30px rgba(57, 255, 20, 0.45);
+}
+
+.solar-cta-section,
+.installation-section,
+.need-solar-section {
+  background: linear-gradient(135deg, #003b2c, #004d40, #003366) !important;
+  border: 1px solid rgba(32, 255, 107, 0.35);
 }
 
 .featured-post__body {
@@ -759,4 +771,162 @@
   z-index: 21;
   pointer-events: auto;
   cursor: text;
+}
+
+/* FINAL CTA BUTTON FIX */
+.about-page .solar-cta-buttons,
+.about-page .cta-buttons,
+.about-page .installation-buttons {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 18px !important;
+  margin-top: 35px !important;
+  flex-wrap: wrap !important;
+}
+
+.about-page .solar-cta-buttons a,
+.about-page .cta-buttons a,
+.about-page .installation-buttons a {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  padding: 15px 34px !important;
+  border-radius: 50px !important;
+  background: linear-gradient(90deg, #28ff38, #04c8ff) !important;
+  color: #001b1f !important;
+  font-weight: 900 !important;
+  text-decoration: none !important;
+  box-shadow: 0 12px 30px rgba(40, 255, 56, 0.28) !important;
+}
+
+/* BLOG CTA FINAL FIX */
+
+.solar-cta-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 35px;
+  flex-wrap: wrap;
+}
+
+.call-btn,
+.whatsapp-btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 220px;
+  padding: 16px 35px;
+
+  border-radius: 50px;
+  text-decoration: none;
+
+  font-size: 16px;
+  font-weight: 800;
+
+  color: #001b1f !important;
+
+  background: linear-gradient(135deg,
+      #39ff14,
+      #00d9ff);
+
+  box-shadow: 0 0 25px rgba(57, 255, 20, .35);
+
+  transition: .3s;
+}
+
+.call-btn:hover,
+.whatsapp-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 40px rgba(0, 217, 255, .45);
+}
+
+.newsletter-cta {
+  background:
+    linear-gradient(135deg,
+      #003b2c,
+      #004d40,
+      #003366) !important;
+
+  border: 1px solid rgba(57, 255, 20, .35) !important;
+}
+
+.newsletter-cta {
+  background:
+    linear-gradient(135deg,
+      #003b2c,
+      #004d40,
+      #003366) !important;
+
+  border: 1px solid rgba(57, 255, 20, .35) !important;
+}
+
+.solar-cta-buttons {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 18px !important;
+  margin-top: 35px !important;
+  flex-wrap: wrap !important;
+  position: relative !important;
+  z-index: 50 !important;
+}
+
+.solar-cta-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 210px !important;
+  padding: 16px 34px !important;
+  border-radius: 50px !important;
+  text-decoration: none !important;
+  font-size: 16px !important;
+  font-weight: 900 !important;
+  color: #001b1f !important;
+  background: linear-gradient(135deg, #39ff14, #00d9ff) !important;
+  box-shadow: 0 0 28px rgba(57, 255, 20, 0.35) !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+}
+
+.newsletter-cta__glow {
+  pointer-events: none !important;
+}
+
+.benefit-item {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.benefit-box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 35px auto;
+  max-width: 900px;
+}
+
+.benefit-item {
+  text-decoration: none;
+  color: white;
+  padding: 18px;
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, .06);
+
+  border: 1px solid rgba(0, 255, 136, .25);
+
+  font-weight: 700;
+
+  transition: .3s;
+}
+
+.benefit-item:hover {
+  background: #00ff8820;
+  transform: translateY(-3px);
 }

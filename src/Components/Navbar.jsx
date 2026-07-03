@@ -7,8 +7,14 @@ function Navbar() {
 
   return (
     <nav className="navbar">
+
       <div className="brand">
         <img src={logo} alt="Greenali Solar" />
+
+        <div className="brand-text">
+          <h2>GREENALI</h2>
+          <p>SOLAR</p>
+        </div>
       </div>
 
       <div
@@ -19,6 +25,7 @@ function Navbar() {
       </div>
 
       <ul className={menuOpen ? "nav-links active" : "nav-links"}>
+
         <li>
           <Link to="/" onClick={() => setMenuOpen(false)}>
             Home
@@ -48,7 +55,9 @@ function Navbar() {
             Contact
           </Link>
         </li>
+
       </ul>
+
     </nav>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import "../Styles/WhySolar.css";
-
+import { Link } from "react-router-dom";
 const stats = [
     { number: "25 Yrs", label: "Panel Performance Warranty" },
     { number: "₹0", label: "Electricity Bills After ROI" },
@@ -89,9 +89,9 @@ export default function WhySolar() {
                         India gets over 300 sunny days a year. Every day is an opportunity
                         to power your home or business and protect the planet.
                     </p>
-                    <a href="#contact" className="hero__cta">
+                    <Link to="/contact" className="hero__cta">
                         Get a Free Solar Quote →
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="hero__scroll">

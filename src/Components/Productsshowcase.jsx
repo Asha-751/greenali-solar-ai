@@ -14,8 +14,8 @@ const PRODUCTS = [
             { val: "ISI", label: "Approved" },
         ],
         badge: "🇮🇳 Made in India",
-        photo: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&auto=format&fit=crop&q=80",
-        alt: "Solar panels on rooftop",
+        photo: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80",
+        alt: "Solar panels",
         slideClass: "ps-slide-0",
     },
     {
@@ -31,8 +31,8 @@ const PRODUCTS = [
             { val: "95%", label: "Efficiency" },
         ],
         badge: "⚡ Smart BMS Included",
-        photo: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=1200&auto=format&fit=crop&q=80",
-        alt: "Solar battery storage",
+        photo: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=1200&q=80",
+        alt: "Solar battery",
         slideClass: "ps-slide-1",
     },
     {
@@ -48,7 +48,7 @@ const PRODUCTS = [
             { val: "WiFi", label: "Enabled" },
         ],
         badge: "📱 App Monitoring",
-        photo: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=1200&auto=format&fit=crop&q=80",
+        photo: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=80",
         alt: "Solar inverter",
         slideClass: "ps-slide-2",
     },
@@ -65,7 +65,7 @@ const PRODUCTS = [
             { val: "All", label: "Roof Types" },
         ],
         badge: "🔩 Corrosion-Free",
-        photo: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1200&auto=format&fit=crop&q=80",
+        photo: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&q=80",
         alt: "Solar structure",
         slideClass: "ps-slide-3",
     },
@@ -82,8 +82,8 @@ const PRODUCTS = [
             { val: "Auto", label: "Schedule" },
         ],
         badge: "🤖 AI Auto-Schedule",
-        photo: "https://images.unsplash.com/photo-1548337138-e87d889cc369?w=1200&auto=format&fit=crop&q=80",
-        alt: "Solar panel cleaner",
+        photo: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1200&q=80",
+        alt: "Solar cleaner",
         slideClass: "ps-slide-4",
     },
     {
@@ -99,8 +99,8 @@ const PRODUCTS = [
             { val: "Deep", label: "Bore Compatible" },
         ],
         badge: "🌾 Agriculture Ready",
-        photo: "https://images.unsplash.com/photo-1560472355-536de3962603?w=1200&auto=format&fit=crop&q=80",
-        alt: "Solar water pump",
+        photo: "https://images.unsplash.com/photo-1560472355-536de3962603?w=1200&q=80",
+        alt: "Solar pump",
         slideClass: "ps-slide-5",
     },
     {
@@ -116,7 +116,7 @@ const PRODUCTS = [
             { val: "IP65", label: "Waterproof" },
         ],
         badge: "💡 Zero Wiring Needed",
-        photo: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&auto=format&fit=crop&q=80",
+        photo: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=80",
         alt: "Solar lights",
         slideClass: "ps-slide-6",
     },
@@ -133,7 +133,7 @@ const PRODUCTS = [
             { val: "MCB", label: "Included" },
         ],
         badge: "🛡️ IP54 Protected",
-        photo: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1200&auto=format&fit=crop&q=80",
+        photo: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1200&q=80",
         alt: "DB panel",
         slideClass: "ps-slide-7",
     },
@@ -170,7 +170,6 @@ export default function ProductsShowcase() {
             if (now - lastWheelRef.current < 800) return;
 
             lastWheelRef.current = now;
-
             if (e.deltaY > 0) goNext();
             else goPrev();
         };
@@ -186,9 +185,7 @@ export default function ProductsShowcase() {
 
         const onEnd = (e) => {
             const diff = touchStartRef.current - e.changedTouches[0].clientY;
-            if (Math.abs(diff) > 50) {
-                diff > 0 ? goNext() : goPrev();
-            }
+            if (Math.abs(diff) > 50) diff > 0 ? goNext() : goPrev();
         };
 
         window.addEventListener("touchstart", onStart, { passive: true });
@@ -218,7 +215,8 @@ export default function ProductsShowcase() {
                 {PRODUCTS.map((p) => (
                     <div
                         key={p.id}
-                        className={`ps-slide ${p.slideClass} ${p.id === current ? "active" : ""}`}
+                        className={`ps-slide ${p.slideClass} ${p.id === current ? "active" : ""
+                            }`}
                     >
                         <div className="ps-content">
                             <div className="ps-num">{p.num}</div>
@@ -279,7 +277,6 @@ export default function ProductsShowcase() {
                         key={p.id}
                         className={`ps-dot ${p.id === current ? "active" : ""}`}
                         onClick={() => goTo(p.id)}
-                        aria-label={`Go to ${p.title} ${p.titleEm}`}
                     />
                 ))}
             </div>
@@ -291,19 +288,11 @@ export default function ProductsShowcase() {
                 <div className="ps-counter-total">/ 0{TOTAL} Products</div>
             </div>
 
-            <button
-                className="ps-arrow ps-arrow-prev"
-                onClick={goPrev}
-                disabled={current === 0}
-            >
+            <button className="ps-arrow ps-arrow-prev" onClick={goPrev} disabled={current === 0}>
                 ↑
             </button>
 
-            <button
-                className="ps-arrow ps-arrow-next"
-                onClick={goNext}
-                disabled={current === TOTAL - 1}
-            >
+            <button className="ps-arrow ps-arrow-next" onClick={goNext} disabled={current === TOTAL - 1}>
                 ↓
             </button>
 
