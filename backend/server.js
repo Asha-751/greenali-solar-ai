@@ -3,10 +3,10 @@ const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
 const path = require("path");
-const { Resend } = require("resend");
+
 
 const app = express();
-const resend = new Resend(process.env.RESEND_API_KEY);
+
 
 app.use(cors());
 app.use(express.json());
@@ -101,7 +101,57 @@ app.get("/api/leads", (req, res) => {
     if (!fileData.trim()) return res.json([]);
     res.json(JSON.parse(fileData));
 });
+/* ADMIN LOGIN */
+app.post("/api/admin/login", (req, res) => {
+    const { email, password } = req.body;
 
+    if (
+        email === "owner@greenalisolar.com" &&
+        password === "Greenali@123"
+    ) {
+        return res.json({
+            success: true,
+            token: "greenali-admin"
+        });
+    }
+
+    return res.status(401).json({
+        success: false,
+        message: "Invalid Email or Password"
+    });
+});/* ================= BLOG API ================= */
+
+// Get All Blogs
+app.get("/api/blogs", (req, res) => {
+    const filePath = path.join(__dirname, "blogs.json");
+
+    if (!fs.existsSync(filePath)) {
+        fs.writeFileSync(filePath, "[]");
+    }
+
+    const blogs = JSON.parse(fs.readFileSync(filePath, "utf8"));
+    res.json(blogs);
+});
+
+// Add New Blog
+app.post("/api/admin/login", (req, res) => {
+    const { email, password } = req.body;
+
+    if (
+        email === "owner@greenalisolar.com" &&
+        password === "Greenali@123"
+    ) {
+        return res.json({
+            success: true,
+            token: "greenali-admin"
+        });
+    }
+
+    return res.status(401).json({
+        success: false,
+        message: "Invalid Email or Password"
+    });
+});
 /* START SERVER */
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
