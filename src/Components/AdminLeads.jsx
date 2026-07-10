@@ -15,7 +15,7 @@ export default function AdminLeads() {
     }
 
     useEffect(() => {
-        fetch("https://greenali-solar-ai.onrender.com/api/leads")
+        fetch("http://localhost:5000/api/admin/login")
             .then((res) => res.json())
             .then((data) => setLeads(data.reverse()))
             .catch(() => alert("Backend not connected"));

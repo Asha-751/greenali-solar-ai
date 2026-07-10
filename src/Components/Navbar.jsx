@@ -1,21 +1,48 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const scrollToSection = (id) => {
+    setMenuOpen(false);
+
+    if (location.pathname !== "/") {
+      navigate("/");
+
+      setTimeout(() => {
+        const section = document.getElementById(id);
+        if (section) {
+          section.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }, 300);
+    } else {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }
+  };
 
   return (
     <nav className="navbar">
-
-      <div className="brand">
+      <Link to="/" className="brand">
         <img src={logo} alt="Greenali Solar" />
 
         <div className="brand-text">
           <h2>GREENALI</h2>
           <p>SOLAR</p>
         </div>
-      </div>
+      </Link>
 
       <div
         className="hamburger"
@@ -49,6 +76,11 @@ function Navbar() {
             Products
           </Link>
         </li>
+        <li>
+          <Link to="/blog" onClick={() => setMenuOpen(false)}>
+            Blog
+          </Link>
+        </li>
 
         <li>
           <Link to="/contact" onClick={() => setMenuOpen(false)}>
@@ -57,7 +89,6 @@ function Navbar() {
         </li>
 
       </ul>
-
     </nav>
   );
 }

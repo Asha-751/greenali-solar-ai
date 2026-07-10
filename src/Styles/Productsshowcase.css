@@ -294,7 +294,7 @@
 }
 
 /* Animation */
-.ps-slide.active .ps-content > * {
+.ps-slide.active .ps-content>* {
   opacity: 0;
   transform: translateY(35px);
   animation: productLineUp 0.7s ease forwards;

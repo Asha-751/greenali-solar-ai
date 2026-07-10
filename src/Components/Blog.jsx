@@ -78,7 +78,7 @@ const posts = [
         date: "June 8, 2026",
         readTime: "5 min read",
         image:
-            "https://images.unsplash.com/photo-1542336391-ae2936d78728?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1548337138-e87d889cc369?auto=format&fit=crop&w=1200&q=80",
     },
     {
         id: 8,
@@ -118,43 +118,67 @@ const tagColors = {
     "Local Solar": { bg: "#fde68a", text: "#92400e" },
 };
 
+// Frequently asked questions shown in the FAQ accordion
+const faqs = [
+    {
+        q: "How much does a rooftop solar system cost in India?",
+        a: "Cost depends on system size, brand, subsidy eligibility and rooftop type. Our team gives a free, no-obligation quote after a quick site or virtual assessment.",
+    },
+    {
+        q: "Am I eligible for the PM Surya Ghar Yojana subsidy?",
+        a: "Most residential homeowners with a valid electricity connection are eligible. Eligibility depends on rooftop area, sanctioned load and discom guidelines, which our team can check for you.",
+    },
+    {
+        q: "How long does solar installation usually take?",
+        a: "A typical residential rooftop system is installed within 5-10 working days after approvals, while larger commercial systems may take longer depending on scale.",
+    },
+    {
+        q: "Do solar panels work well during monsoon or cloudy days?",
+        a: "Yes, panels still generate power on cloudy days, though output is lower than on sunny days. Proper system sizing and battery backup help maintain reliability.",
+    },
+    {
+        q: "What maintenance does a solar system need?",
+        a: "Routine cleaning and periodic inspection keep panels performing well. Most systems need minimal upkeep, and Greenali Solar offers ongoing performance support.",
+    },
+];
+
 function Tag({ category }) {
     const colors = tagColors[category] || { bg: "#f3f4f6", text: "#374151" };
 
     return (
-        <span className="tag" style={{ background: colors.bg, color: colors.text }}>
+        <div className="gs-pbmyof" style={{ background: colors.bg, color: colors.text }}>
             {category}
-        </span>
+        </div>
     );
 }
 
 function FeaturedPost({ post, onRead }) {
     return (
-        <div className="featured-post">
-            <div className="featured-post__image-wrap">
-                <img className="featured-post__img" src={post.image} alt={post.title} />
-                <div className="featured-post__overlay" />
-                <div className="featured-post__sun">☀️</div>
+        <div className="gs-uzfk8u">
+            <div className="gs-ie6ivw">
+                <img className="gs-pvs7hz" src={post.image} alt={post.title} />
+                <div className="gs-j755nf" />
+                <div className="gs-4zw9xa">☀️</div>
             </div>
 
-            <div className="featured-post__body">
-                <div className="featured-post__tags">
+            <div className="gs-t0cvs4">
+                <div className="gs-3kx7ee">
                     <Tag category={post.category} />
-                    <span className="featured-badge">★ Featured</span>
+                    <div className="gs-j2qp89">★ Featured</div>
                 </div>
 
-                <h2 className="featured-post__title">{post.title}</h2>
+                <div className="gs-dtjvzh">{post.title}</div>
 
-                <div className="featured-post__meta">
-                    <span>📅 {post.date}</span>
-                    <span>⏱ {post.readTime}</span>
+                <div className="gs-cq99ch">
+                    <div>📅 {post.date}</div>
+                    <div>⏱ {post.readTime}</div>
                 </div>
 
-                <p className="featured-post__excerpt">{post.excerpt}</p>
+                <div className="gs-f8cgvy">{post.excerpt}</div>
 
-                <button className="featured-post__link" onClick={() => onRead(post)}>
+                <div className="gs-ioykl1" onClick={() => onRead(post)}>
                     Read Article →
-                </button>
+                </div>
             </div>
         </div>
     );
@@ -162,24 +186,24 @@ function FeaturedPost({ post, onRead }) {
 
 function PostCard({ post, onRead }) {
     return (
-        <div className="post-card">
-            <div className="post-card__thumb">
+        <div className="gs-agl58k">
+            <div className="gs-0yncxl">
                 <img src={post.image} alt={post.title} />
             </div>
 
-            <div className="post-card__body">
+            <div className="gs-xo9t7e">
                 <Tag category={post.category} />
-                <h3 className="post-card__title">{post.title}</h3>
-                <p className="post-card__excerpt">{post.excerpt}</p>
+                <div className="gs-l4zklo">{post.title}</div>
+                <div className="gs-8g8jdp">{post.excerpt}</div>
 
-                <div className="post-card__footer">
-                    <span>
+                <div className="gs-0lvsnu">
+                    <div>
                         {post.date} · {post.readTime}
-                    </span>
+                    </div>
 
-                    <button className="post-card__link" onClick={() => onRead(post)}>
+                    <div className="gs-jza7tz" onClick={() => onRead(post)}>
                         Read →
-                    </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -188,61 +212,61 @@ function PostCard({ post, onRead }) {
 
 function ArticlePopup({ post, onClose }) {
     return (
-        <div className="article-popup-overlay">
-            <div className="article-popup">
-                <button className="article-close" onClick={onClose}>
+        <div className="gs-3w5uzb">
+            <div className="gs-30t9nt">
+                <div className="gs-ahxthv" onClick={onClose}>
                     ✕
-                </button>
+                </div>
 
                 <img src={post.image} alt={post.title} />
 
-                <div className="article-content">
+                <div className="gs-3a3zmf">
                     <Tag category={post.category} />
-                    <h1>{post.title}</h1>
+                    <div style={{ fontSize: 42, margin: "18px 0", fontWeight: 900 }}>{post.title}</div>
 
-                    <p className="article-meta">
+                    <div className="gs-8mdd4v">
                         {post.date} · {post.readTime}
-                    </p>
+                    </div>
 
-                    <p>{post.excerpt}</p>
+                    <div>{post.excerpt}</div>
 
-                    <h2>Why This Matters</h2>
-                    <p>
+                    <div style={{ color: "#39ff14", marginTop: 28, fontSize: 22, fontWeight: 800 }}>Why This Matters</div>
+                    <div>
                         Solar energy is becoming a smart investment for homes, businesses
                         and industries. With proper planning and expert installation, it can
                         reduce electricity bills and support a cleaner future.
-                    </p>
+                    </div>
 
-                    <h2>Greenali Solar Advantage</h2>
-                    <p>
+                    <div style={{ color: "#39ff14", marginTop: 28, fontSize: 22, fontWeight: 800 }}>Greenali Solar Advantage</div>
+                    <div>
                         Greenali Solar focuses on quality products, safe installation,
                         professional guidance and long-term support for better performance.
-                    </p>
+                    </div>
 
-                    <h2>FAQs</h2>
-                    <div className="article-faq">
-                        <p>
+                    <div style={{ color: "#39ff14", marginTop: 28, fontSize: 22, fontWeight: 800 }}>FAQs</div>
+                    <div className="gs-x9f2qz">
+                        <div>
                             <b>Q. Is solar good for homes?</b>
                             <br />
                             Yes, solar can reduce electricity bills and improve energy
                             independence.
-                        </p>
+                        </div>
 
-                        <p>
+                        <div>
                             <b>Q. Can businesses use solar?</b>
                             <br />
                             Yes, commercial solar is useful for offices, factories, schools
                             and shops.
-                        </p>
+                        </div>
 
-                        <p>
+                        <div>
                             <b>Q. Does Greenali Solar provide consultation?</b>
                             <br />
                             Yes, you can contact the team for site survey and guidance.
-                        </p>
+                        </div>
                     </div>
 
-                    <div className="article-actions">
+                    <div className="gs-6dpbhs">
                         <a href="tel:+916200003061">📞 Call Now</a>
                         <a
                             href="https://wa.me/916200003061"
@@ -258,49 +282,167 @@ function ArticlePopup({ post, onClose }) {
     );
 }
 
+function Sidebar({ activeCategory, onSelectCategory, popularPosts, onRead }) {
+    return (
+        <div className="gs-a753lc">
+            <div className="gs-puxqph">
+                <div className="gs-wm31yi">Categories</div>
+                <div className="gs-xa11dp">
+                    {categories.map((cat) => (
+                        <div
+                            key={cat}
+                            className={`gs-owgzri ${activeCategory === cat ? "gs-xaji0y" : ""
+                                }`}
+                            onClick={() => onSelectCategory(cat)}
+                        >
+                            <div>{cat}</div>
+                            <div className="gs-hair4c">
+                                {cat === "All Posts"
+                                    ? posts.length
+                                    : posts.filter((p) => p.category === cat).length}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="gs-puxqph">
+                <div className="gs-wm31yi">Popular Posts</div>
+                <div className="gs-zcotoh">
+                    {popularPosts.map((post) => (
+                        <div key={post.id} className="gs-60rjiw" onClick={() => onRead(post)}>
+                            <img src={post.image} alt={post.title} />
+                            <div>
+                                <div className="gs-jlteiy">{post.title}</div>
+                                <div className="gs-1swjck">{post.date}</div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="gs-puxqph gs-r62gds">
+                <div className="gs-q2y9v8">☀️</div>
+                <div className="gs-wm31yi">Get a Free Solar Quote</div>
+                <div className="gs-6wzs3t">
+                    Talk to our experts about savings, subsidy and installation.
+                </div>
+                <a href="tel:+916200003061" className="gs-g8sbi4">
+                    📞 Call Now
+                </a>
+            </div>
+        </div>
+    );
+}
+
+function FAQSection() {
+    const [openIndex, setOpenIndex] = useState(0);
+    const [question, setQuestion] = useState("");
+
+    const toggle = (idx) => {
+        setOpenIndex(openIndex === idx ? -1 : idx);
+    };
+
+    const askOnWhatsApp = () => {
+        const trimmed = question.trim();
+        if (!trimmed) return;
+        const text = encodeURIComponent(`Hi Greenali Solar, I have a question: ${trimmed}`);
+        window.open(`https://wa.me/919122789990?text=${text}`, "_blank", "noreferrer");
+        setQuestion("");
+    };
+
+    return (
+        <div className="gs-0y9dom">
+            <div className="gs-i7p5tb" />
+
+            <div className="gs-94874f">
+                <div className="gs-5igqpk">Got Doubts?</div>
+                <div style={{ fontSize: 32, fontWeight: 900, color: "white", margin: "0 0 12px" }}>Frequently Asked Questions</div>
+                <div className="gs-rhocn9">
+                    Answers to common solar questions. Don't see yours? Ask us anything below.
+                </div>
+            </div>
+
+            <div className="gs-3gdppq">
+                {faqs.map((item, idx) => (
+                    <div
+                        key={item.q}
+                        className={`gs-9xpsei ${openIndex === idx ? "gs-i3qk2i" : ""}`}
+                    >
+                        <div className="gs-he7ur2" onClick={() => toggle(idx)}>
+                            <div>{item.q}</div>
+                            <div className="gs-i64ciy">{openIndex === idx ? "−" : "+"}</div>
+                        </div>
+
+                        {openIndex === idx && (
+                            <div className="gs-mvihcw">{item.a}</div>
+                        )}
+                    </div>
+                ))}
+            </div>
+
+            <div className="gs-1ertj5">
+                <div style={{ fontSize: 18, fontWeight: 900, color: "white", margin: "0 0 8px" }}>Have a different question?</div>
+                <div>Type it below — we'll answer you directly on WhatsApp.</div>
+
+                <div className="gs-pht0hl">
+                    <input
+                        type="text"
+                        placeholder="e.g. Can I install solar on a tin roof?"
+                        value={question}
+                        onChange={(e) => setQuestion(e.target.value)}
+                        onKeyDown={(e) => e.key === "Enter" && askOnWhatsApp()}
+                    />
+                    <div onClick={askOnWhatsApp} style={{ cursor: "pointer" }}>💬 Ask on WhatsApp</div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
 function NewsletterCTA() {
     return (
-        <div className="newsletter-cta">
-            <div className="newsletter-cta__glow" />
-            <p className="newsletter-cta__icon">🌞</p>
+        <div className="gs-6t4ufe">
+            <div className="gs-id25ow" />
+            <div className="gs-f75935">🌞</div>
 
-            <h2>Need Solar Installation?</h2>
+            <div style={{ fontSize: 30, color: "#fff", marginBottom: 10, fontWeight: 900 }}>Need Solar Installation?</div>
 
-            <p>
+            <div>
                 Get expert guidance for residential, commercial and industrial solar
                 projects.
-            </p>
-            <div className="benefit-box">
+            </div>
+            <div className="gs-ikcidk">
 
-                <a href="/contact" className="benefit-item">
+                <a href="/contact" className="gs-wnnhj7">
                     ⚡ Save On Electricity Bills
                 </a>
 
-                <a href="/why-solar" className="benefit-item">
+                <a href="/why-solar" className="gs-wnnhj7">
                     🌱 Clean & Sustainable Energy
                 </a>
 
-                <a href="/products" className="benefit-item">
+                <a href="/products" className="gs-wnnhj7">
                     🏠 Homes, Businesses & Industries
                 </a>
 
-                <a href="/contact" className="benefit-item">
+                <a href="/contact" className="gs-wnnhj7">
                     💰 Subsidy Guidance
                 </a>
 
-                <a href="/services" className="benefit-item">
+                <a href="/services" className="gs-wnnhj7">
                     🛡 Long-Term Performance Support
                 </a>
 
-                <a href="tel:+916200003061" className="benefit-item">
+                <a href="tel:+916200003061" className="gs-wnnhj7">
                     📞 Free Consultation
                 </a>
 
             </div>
-            <div className="solar-cta-buttons">
+            <div className="gs-nam148">
                 <a
                     href="tel:+916200003061"
-                    className="solar-cta-btn"
+                    className="gs-p6vz41"
                 >
                     📞 Call Now
                 </a>
@@ -309,7 +451,7 @@ function NewsletterCTA() {
                     href="https://wa.me/916200003061"
                     target="_blank"
                     rel="noreferrer"
-                    className="solar-cta-btn"
+                    className="gs-p6vz41"
                 >
                     💬 WhatsApp Us
                 </a>
@@ -324,6 +466,7 @@ export default function Blog() {
     const [searchTerm, setSearchTerm] = useState("");
 
     const featuredPost = posts.find((post) => post.featured);
+    const popularPosts = posts.slice(0, 4);
 
     const filteredPosts = posts.filter((post) => {
         const search = searchTerm.toLowerCase();
@@ -345,25 +488,25 @@ export default function Blog() {
             : filteredPosts;
 
     return (
-        <div className="blog-page" id="blog">
+        <div className="gs-65kxvf" id="blog">
             {selectedPost && (
                 <ArticlePopup post={selectedPost} onClose={() => setSelectedPost(null)} />
             )}
 
-            <header className="blog-header">
-                <div className="blog-header__glow" />
-                <p className="blog-header__eyebrow">Greenali Solar — Knowledge Hub</p>
+            <div className="gs-jiujv6">
+                <div className="gs-dw2pcn" />
+                <div className="gs-oh9sdb">Greenali Solar — Knowledge Hub</div>
 
-                <h1 className="blog-header__title">
+                <div className="gs-ytjxep">
                     Insights on Solar Energy & Clean Future
-                </h1>
+                </div>
 
-                <p className="blog-header__subtitle">
+                <div className="gs-9t84az">
                     Expert articles on solar technology, savings, subsidy, maintenance and
                     India's renewable journey.
-                </p>
+                </div>
 
-                <div className="blog-search">
+                <div className="gs-1t2tal">
                     <input
                         type="text"
                         placeholder="Search solar blogs..."
@@ -371,39 +514,51 @@ export default function Blog() {
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
                 </div>
-            </header>
+            </div>
 
-            <div className="blog-filters">
+            <div className="gs-ibljh7 gs-5lxo6q">
                 {categories.map((cat) => (
-                    <button
+                    <div
                         key={cat}
-                        className={`filter-btn ${activeCategory === cat ? "active" : ""}`}
+                        className={`gs-wjr64d ${activeCategory === cat ? "gs-xaji0y" : ""}`}
                         onClick={() => setActiveCategory(cat)}
                     >
                         {cat}
-                    </button>
+                    </div>
                 ))}
             </div>
 
-            <div className="blog-content">
-                {activeCategory === "All Posts" &&
-                    searchTerm.trim() === "" &&
-                    featuredPost && (
-                        <FeaturedPost post={featuredPost} onRead={setSelectedPost} />
+            <div className="gs-q85jsg">
+                <div className="gs-9xuy41">
+                    {activeCategory === "All Posts" &&
+                        searchTerm.trim() === "" &&
+                        featuredPost && (
+                            <FeaturedPost post={featuredPost} onRead={setSelectedPost} />
+                        )}
+
+                    {normalPosts.length > 0 ? (
+                        <div className="gs-6wktak">
+                            {normalPosts.map((post) => (
+                                <PostCard key={post.id} post={post} onRead={setSelectedPost} />
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="gs-okep7y">
+                            No posts found. Try another category or search term.
+                        </div>
                     )}
+                </div>
 
-                {normalPosts.length > 0 ? (
-                    <div className="posts-grid">
-                        {normalPosts.map((post) => (
-                            <PostCard key={post.id} post={post} onRead={setSelectedPost} />
-                        ))}
-                    </div>
-                ) : (
-                    <div className="posts-empty">
-                        No posts found. Try another category or search term.
-                    </div>
-                )}
+                <Sidebar
+                    activeCategory={activeCategory}
+                    onSelectCategory={setActiveCategory}
+                    popularPosts={popularPosts}
+                    onRead={setSelectedPost}
+                />
+            </div>
 
+            <div className="gs-xvg0fn">
+                <FAQSection />
                 <NewsletterCTA />
             </div>
         </div>

@@ -186,11 +186,13 @@ export default function About() {
             </div>
 
             <div className="real-work-card">
-              <img src={<img
-                src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=80"
+              <img
+                src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&q=80"
                 alt="Industrial Solar Plant"
-              />} alt="Industrial Solar Plant" />
+              />
+
               <h3>Industrial Solar Plants</h3>
+
               <p>
                 Large-scale solar systems engineered for factories and
                 industrial facilities with maximum efficiency.
@@ -257,6 +259,6 @@ export default function About() {
           </Link>
         </section>
       </main>
-    </div>
+    </div >
   );
 }

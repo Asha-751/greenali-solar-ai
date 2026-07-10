@@ -1,11 +1,14 @@
-function HomePage() {
-  return (
-    <section className="clean-hero" id="home">
-      <div className="hero-slide slide1"></div>
-      <div className="hero-slide slide2"></div>
-      <div className="hero-slide slide3"></div>
-      <div className="hero-slide slide4"></div>
+import { Link } from "react-router-dom";
+import heroBg from "../assets/hero-bg.jpg.png";
 
+function Hero() {
+  return (
+    <section
+      className="clean-hero"
+      style={{
+        backgroundImage: `url(${heroBg})`,
+      }}
+    >
       <div className="clean-hero-overlay"></div>
 
       <div className="clean-hero-content">
@@ -20,10 +23,17 @@ function HomePage() {
         </p>
 
         <div className="clean-hero-buttons">
-          <Link to="/products" className="hero-btn">Explore Solutions</Link>
-          <Link to="/contact" className="hero-btn">Get Free Quote</Link>
+          <Link to="/products" className="hero-btn">
+            Explore Solutions
+          </Link>
+
+          <Link to="/contact" className="hero-btn">
+            Get Free Quote
+          </Link>
         </div>
       </div>
     </section>
   );
 }
+
+export default Hero;

@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import "../Styles/Services.css";
-
-const VIDEO_BG = "https://videos.pexels.com/video-files/4254174/4254174-uhd_2560_1440_25fps.mp4";
+const VIDEO_BG = "https://cdn.coverr.co/videos/coverr-aerial-view-of-solar-panels-1573/1080p.mp4";
 const IMG_HERO = "https://images.pexels.com/photos/9875441/pexels-photo-9875441.jpeg?auto=compress&cs=tinysrgb&w=1600";
 const IMG_CTA = "https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg?auto=compress&cs=tinysrgb&w=1600";
 console.log("📧 Sending Email...");
